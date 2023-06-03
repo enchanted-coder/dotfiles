@@ -1,4 +1,4 @@
-# DOTFILES
+# Hyprland
 
 ### These are my config files for my rice and other linux utilities.
 
