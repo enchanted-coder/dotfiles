@@ -6,7 +6,6 @@
 
 ```
 git clone https://github.com/enchanted-coder/dotfiles 
-
 ```
 ```
 cd dotfiles 
