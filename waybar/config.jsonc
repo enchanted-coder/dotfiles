@@ -3,12 +3,10 @@
     "position": "top",
     "height": 0,
     "modules-left": ["clock", "wlr/workspaces"],
-    // "modules-center": ["hyprland/window"],
+    "modules-center": ["hyprland/window"],
     "modules-right": [
         "tray",
-        "custom/caffeine",
-        "custom/updates",
-        // "custom/language",
+        "temperature",
         "network",
         "backlight",
         "pulseaudio",
@@ -36,26 +34,17 @@
             "10": []
         }
     },
-    "custom/caffeine": {
-        "exec": "~/.config/waybar/scripts/caffeine.sh",
-        "return-type": "json",
-        "interval": 3,
-        "format-icons": ["﯈", ""],
-        "format": "{icon}"
-    },
-    "custom/updates": {
-        "exec": "(checkupdates ; paru -Qua) | wc -l",
-        "interval": 7200,
-        "format": " {}"
-    },
-    "custom/language": {
-        "exec": "cat /tmp/kb_layout",
-        "interval": 3,
-        "format": " {}"
-    },
     "tray": {
         "icon-size": 13,
         "spacing": 10
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": [""]
     },
     "backlight": {
         "device": "intel_backlight",
