@@ -14,3 +14,4 @@ cd dotfiles
 ```
 cp -r . ~/.config 
 ```
+`rm ~/.config/README.md`
