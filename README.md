@@ -12,6 +12,9 @@ git clone https://github.com/enchanted-coder/dotfiles
 cd dotfiles 
 ```
 ```
-cp -r . ~/.config 
+cp -r . ~/.config
 ```
-`rm ~/.config/README.md`
+```
+rm ~/.config/README.md
+```
+
