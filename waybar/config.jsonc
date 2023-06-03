@@ -8,7 +8,6 @@
         "tray",
         "temperature",
         "network",
-        "backlight",
         "pulseaudio",
         "battery"
     ],
