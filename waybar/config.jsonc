@@ -75,17 +75,19 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "network": {
-        "format-wifi": " {essid}",
-        "format-ethernet": " {essid}",
+        "format-wifi": "  {essid}",
+        "format-ethernet": " {essid} Connected",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "⚠ Disconnected",
-        "tooltip-format-wifi": "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}",
+        "format-disconnected": "",
+        "tooltip-format-wifi": " {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUP {bandwidthUpBits} DOWN {bandwidthDownBits}",
         "on-click": "wofi-wifi-menu"
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+        "format": "{volume}% {icon} {format_source}",
         "format-muted": " Muted",
-        "on-click": "/home/amitgold/.config/hypr/scripts/volume_ctl.sh mute",
+        "format-source": "{volume}%  ",
+        "format-source-muted": "  ",
+        "on-click": "pavucontrol",
         "scroll-step": 1,
         "format-icons": {
             "headphone": "",
