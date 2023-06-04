@@ -7,6 +7,7 @@
     "modules-right": [
         "tray",
         "temperature",
+        "memory",
         "network",
         "pulseaudio",
         "battery"
@@ -19,7 +20,7 @@
         "disable-scroll": true,
         "all-outputs": true,
         "on-click": "activate",
-        //"format": "{icon}",
+        "format": "{icon}",
         "persistent_workspaces": {
             "1": [],
             "2": [],
@@ -31,11 +32,23 @@
             "8": [],
             "9": [],
             "10": []
+        },
+        "format-icons": {
+          "1": "",
+          "2": "",
+          "3": "󰈹",
+          "4": "",
+          "5": "󰻞",
+          "6": "",
+          "default": ""
         }
     },
     "tray": {
         "icon-size": 13,
         "spacing": 10
+    },
+    "memory": {
+      "format": " {}%"
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -44,14 +57,6 @@
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
         "format-icons": [""]
-    },
-    "backlight": {
-        "device": "intel_backlight",
-        "format": "{icon} {percent}%",
-        "format-icons": ["", "", ""],
-        "on-scroll-up": "brightnessctl set 1%+",
-        "on-scroll-down": "brightnessctl set 1%-",
-        "min-length": 6
     },
     "battery": {
         "states": {
@@ -70,16 +75,16 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "network": {
-        "format-wifi": "直 {essid}",
+        "format-wifi": " {essid}",
         "format-ethernet": " {essid}",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "睊 Disconnected",
+        "format-disconnected": "⚠ Disconnected",
         "tooltip-format-wifi": "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}",
         "on-click": "wofi-wifi-menu"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-muted": "ﱝ Muted",
+        "format-muted": " Muted",
         "on-click": "/home/amitgold/.config/hypr/scripts/volume_ctl.sh mute",
         "scroll-step": 1,
         "format-icons": {
@@ -89,7 +94,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", "墳", ""]
+            "default": ["", "", "", ""]
         }
     }
 }
