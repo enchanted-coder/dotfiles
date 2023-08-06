@@ -8,43 +8,43 @@
 }
 
 window#waybar {
-    background: rgba(21, 18, 27, 0);
-    color: #bd93f9;
+    background: #1d2021;
+    color: #ebdbb2;
 }
 
 tooltip {
-    background: #282a36;
+    background: #282828;
     border-radius: 10px;
     border-width: 2px;
     border-style: solid;
-    border-color: #282a36;
+    border-color: #1d2021;
 }
 
 #workspaces button {
     padding: 5px;
-    color: #44475a;
+    color: #504945;
     margin-right: 5px;
 }
 
 #workspaces button.active {
-    color: #bd93f9;
+    color: #ebdbb2;
 }
 
 #workspaces button.focused {
-    color: #f1fa8c;
-    background: #282a36;
+    color: #ebdbb2;
+    background: #4e635b;
     border-radius: 10px;
 }
 
 #workspaces button.urgent {
-    color: #bd93f9;
-    background: #982a36;
+    color: #1d2021;
+    background: #fb4934;
     border-radius: 10px;
 }
 
 #workspaces button:hover {
-    background: #21222c;
-    color: #bd93f9;
+    background: #4e635b;
+    color: #ebdbb2;
     border-radius: 10px;
 }
 
@@ -60,11 +60,11 @@ tooltip {
 #workspaces,
 #tray,
 #backlight {
-    background: #282a36;
+    background: #1d2021;
     padding: 0px 10px;
     margin: 3px 0px;
     margin-top: 10px;
-    border: 1px solid #44475a;
+    border: 1px solid #282828;
 }
 
 #tray {
@@ -73,7 +73,7 @@ tooltip {
 }
 
 #workspaces {
-    background: #282a36;
+    background: #1d2021;
     border-radius: 10px;
     margin-left: 10px;
     padding-right: 0px;
@@ -89,19 +89,19 @@ tooltip {
 }
 
 #clock {
-    color: #bd93f9;
+    color: #ebdbb2;
     border-radius: 10px;
     margin-left: 10px;
 }
 #temperature {
-    color: #ff6e6e;
+    color: #cc241d;
     border-radius: 10px 0 0 10px;
     border-right: 0px;
     margin-right: 0px;
 }
 
 #memory {
-    color: #8be9fd;
+    color: #ebdbb2;
     border-right: 0;
     border-left: 0;
 }
@@ -111,13 +111,13 @@ tooltip {
   border-right: 0px;
 }
 #pulseaudio {
-    color: #bd93f9;
+    color: #83a598;
     border-left: 0px;
     border-right: 0px;
 }
 
 #battery {
-    color: #69ff94;
+    color: #689d6a;
     border-radius: 0 10px 10px 0;
     margin-right: 10px;
     border-left: 0px;
