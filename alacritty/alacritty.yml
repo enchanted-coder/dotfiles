@@ -23,14 +23,14 @@ font:
   bold_italic:
     family: JetBrainsMono Nerd Font
     style: Bold Italic
-  size: 12
+  size: 11.5
   builtin_box_drawing: true
 
 # Gruvbox colors
 colors:
   # Default colors
   primary:
-    background: '#282828'
+    background: '#1d2021'
     foreground: '#ebdbb2'
 
   # Cursor colors
