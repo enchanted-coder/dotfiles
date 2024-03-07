@@ -16,23 +16,21 @@
     "temperature",
     "custom/separator",
     "custom/window-name",
-    "custom/pacman-update-icon",
-    "custom/pacman-update",
     "tray"
   ],
 
-  "modules-center": ["wlr/workspaces"],
+  "modules-center": ["hyprland/workspaces"],
   "modules-right": [
-    "battery",
+    "network",
     "backlight",
     "pulseaudio",
     "custom/right-arr",
-    "network",
+    "battery",
     "custom/clock-icon",
     "clock"
   ],
 
-  "wlr/workspaces": {
+  "hyprland/workspaces": {
     "all-outputs": true,
     "format": "{icon}",
     "format-icons": {
@@ -45,80 +43,106 @@
       "urgent": "",
       "active": "",
       "default": ""
-    }
+    },
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1",
+        "on-click": "activate"
   },
 
-  
-
-  
-
   "clock": {
-    "format": "{: %R }",
-    "format-alt": "<b>{:%a.%d,%b}</b>",
-    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
+    "timezone": "Africa/Nairobi",
+    "format": " {:%d <small>%a</small> %H:%M}",
+    "format-alt": " {:%A %B %d %Y (%V) | %r}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar-weeks-pos": "right",
+    "today-format": "<span color='#f38ba8'><b><u>{}</u></b></span>",
+    "format-calendar": "<span color='#f2cdcd'><b>{}</b></span>",
+    "format-calendar-weeks": "<span color='#94e2d5'><b>W{:%U}</b></span>",
+    "format-calendar-weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+    "interval": 60
   },
 
   "cpu": {
-    "interval": 10,
-    "format-alt": "☢️ {usage}%",
-    "format": "󰻠 {avg_frequency} GHz",
-    "max-length": 10,
-    "tooltip": false
+    "interval": 2,
+    "format": " {avg_frequency} GHz",
+    "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'"
   },
+
   "memory": {
-    "interval": 30,
-    "format": " {used}GiB",
-    "format-alt": " {used:0.1f}G",
-    "max-length": 10
+    "interval": 2,
+    "format": " {used}GiB"
   },
+
   "backlight": {
-    "device": "amdgpu_bl1",
-    "format": "{icon} {percent}",
-    "tooltip": false,
-    "format-icons": ["☀", "🔅", "☀️"]
+    "format": "{icon} {percent}%",
+    "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+    ],
+    "interval": 2
   },
+
   "tray": {
-    "icon-size": 20,
-    "spacing": 8
+    "icon-size": 15,
+    "spacing": 15
   },
+
   "network": {
-    
-    "format-wifi": "  {essid}",
-    "on-click": "iwgtk",
-    "format-ethernet": "󰈀 wired",
-    "format-disconnected": "",
-    "tooltip-format": "{ifname} via {gwaddr} 🌐",
-    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-    "tooltip-format-ethernet": "{ifname} ",
-    "tooltip-format-disconnected": "🌐"
-  },
+    "format": " {bandwidthTotalBytes}",
+    "format-disconnected": "{icon} No Internet",
+    "format-linked": " {ifname} (No IP)",
+    "format-alt": "↕{bandwidthUpBytes} | ↕{bandwidthDownBytes}",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}  {gwaddr}",
+    "tooltip-format-wifi": "{icon} {essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "{icon} {ipaddr}/{cidr}",
+    "tooltip-format-disconnected": "{icon} Disconnected",
+    "on-click-right": "nm-connection-editor",
+    "format-icons": {
+        "ethernet": "",
+        "disconnected": "⚠",
+        "wifi": [
+            "",
+            ""
+        ]
+    },
+    "interval": 2
+},
 
   "pulseaudio": {
     "format": "{icon} <b>{volume}</b> {format_source}",
     "format-source": "{volume}%  ",
     "format-source-muted": "  ",
     "format-bluetooth": " ᛒ <b>{volume}</b> ",
-    "format-bluetooth-muted": "🔇 ",
+    "format-bluetooth-muted": " ",
     "tooltip": false,
-    "format-muted": "🔇",
+    "format-muted": " {format_source}",
     
     "format-icons": {
-      "default": ["🔈", "🔉", "🔊"]
+      "default": ["", "", ""]
     },
     "scroll-step": 1,
     "on-click": "pavucontrol"
   },
   "battery": {
     
-    "interval": 30,
+    "interval": 2,
     "states": {
+      "good": 80,
       "warning": 30,
       "critical": 15
     },
     "format": "{icon} {capacity}%",
-    "format-alt": "{time} {icon}",
-    "format-charging": "󰚥 {capacity}%",
-    "format-icons": [" ", " ", " ", " "],
+    "format-alt": "{icon} {time}",
+    "format-plugged": "󰚥 {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-icons": [" ", " ", " ", " "],
     "max-length": 25,
     "tooltip": false
   },
@@ -133,19 +157,27 @@
   },
   "custom/window-name": {
     "format": "<b>{}</b>",
-    "interval": 1,
-    "exec": "hyprctl activewindow | grep class | awk '{print $2}'"
+    "exec": "hyprctl activewindow | grep class | awk '{print $2}'",
+    "separate-outputs": true,
+    "max-length": 35
   },
 
   
   "custom/window-icon": {},
 
   "temperature": {
-    "thermal-zone": 1,
-    "critical-threshold": 80,
-    "format-critical": " {temperatureC}°C",
-    "format": " {temperatureC}°C"
-  }
+    // "thermal-zone": 2,
+    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "critical-threshold": 40,
+    "format-critical": "{icon} {temperatureC}°C",
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": [
+        "",
+        "",
+        ""
+    ],
+    "interval": 2
+}
 
   
 }
